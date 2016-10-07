@@ -1,0 +1,37 @@
+main:
+  tenders_api_server: https://api-sandbox.openprocurement.org
+  tenders_api_version: "0"
+  contracting_api_server: https://api-sandbox.openprocurement.org
+  contracting_api_version: "0"
+  api_token: "contracting_secret"
+
+version: 1
+
+formatters:
+  simple:
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: simple
+    stream: ext://sys.stdout
+
+  journal:
+    class: ExtendedJournalHandler.ExtendedJournalHandler
+    level: INFO
+    SYSLOG_IDENTIFIER: CONTRACTING_DATA_BRIDGE
+    TENDERS_API_VERSION: "0"
+    TENDERS_API_URL: https://api-sandbox.openprocurement.org
+
+loggers:
+  openprocurement.contracting.api.databridge:
+    handlers: [console, journal]
+    propagate: no
+    level: DEBUG
+
+  "":
+    handlers: [console, journal]
+    level: DEBUG
+
