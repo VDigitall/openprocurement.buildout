@@ -4,6 +4,17 @@ main:
   public_tenders_api_server: ${options['tenders_api_server']}
   couch_url: ${options['couch_url']}
   public_db: ${options['public_db']}
+  api_clients_count: ${options['api_clients_count']}
+  workers_count: ${options['workers_count']}
+  filter_workers_count: ${options['filter_workers_count']}
+  retry_workers_count: ${options['retry_workers_count']}
+  resource: ${options['resource']}
+  retry_default_timeout: ${options['retry_default_timeout']}
+  worker_sleep: ${options['worker_sleep']}
+  watch_interval: ${options['watch_interval']}
+  retries_count: ${options['retries_count']}
+  queue_timeout: ${options['queue_timeout']}
+  user_agent: ${options['user_agent']}
   retrievers_params:
     down_requests_sleep: ${options['down_requests_sleep']}
     up_requests_sleep: ${options['up_requests_sleep']}
