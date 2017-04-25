@@ -6,3 +6,14 @@ extends =
 [edge_data_bridge_defaults]
 user_agent = edge
 resources_api_server = http://public.api-sandbox.openprocurement.org
+
+#Example with Statsite Handler
+[buildout]
+extends =
+    profiles/production.cfg
+    profiles/statsite.cfg
+    profiles/statsite_tenders.cfg
+
+[edge_data_bridge_defaults]
+user_agent = edge
+resources_api_server = http://public.api-sandbox.openprocurement.org

@@ -1,0 +1,33 @@
+main:
+  app_key: ${options['app_key']}
+  host: localhost
+  port: 8125
+  sample_rate: 1
+  disabled: False
+publish_templates:
+  default:
+    - '%(logger)s;%(attr)s;%(metric_name)s'
+counters:
+  MESSAGE_ID: {}
+  DOCUMENT_TIMESHIFT:
+    value_type: value
+  FEEDER_REQUEST_DURATION:
+    value_type: value
+  BACKWARD_RESPONSE_LENGTH:
+    value_type: value
+  FORWARD_RESPONSE_LENGTH:
+    value_type: value
+gauges:
+  INPUT_THREADS: {}
+  FILTER_THREADS: {}
+  MAIN_THREADS: {}
+  RETRY_THREADS: {}
+  MAIN_QUEUE_SIZE: {}
+  RETRY_QUEUE_SIZE: {}
+  API_CLIENTS: {}
+  REQUESTS_DEV: {}
+  REQUESTS_MIN_AVG: {}
+  REQUESTS_MAX_AVG: {}
+  REQUESTS_AVG: {}
+  FEEDER_QUEUE_SIZE: {}
+  FORWARD_WAIT_SLEEP: {}
