@@ -2,21 +2,21 @@ main:
   app_key: ${options['app_key']}
   host: localhost
   port: 8125
-  sample_rate: 1
-  disabled: False
 publish_templates:
   default:
     - '%(logger)s;%(attr)s;%(metric_name)s'
+  mess_id:
+    - '%(attr)s;%(metric_name)s'
 counters:
-  MESSAGE_ID: {}
-  DOCUMENT_TIMESHIFT:
-    value_type: value
-  FEEDER_REQUEST_DURATION:
-    value_type: value
+  MESSAGE_ID:
+    publish_template: mess_id
   BACKWARD_RESPONSE_LENGTH:
     value_type: value
   FORWARD_RESPONSE_LENGTH:
     value_type: value
+histograms:
+  DOCUMENT_TIMESHIFT: {}
+  FEEDER_REQUEST_DURATION: {}
 gauges:
   INPUT_THREADS: {}
   FILTER_THREADS: {}

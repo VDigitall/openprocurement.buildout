@@ -56,7 +56,7 @@ handlers:
     TENDERS_API_URL: ${options['resources_api_server']}
 {% end %}
 {% if 'statsdhandler' in options %}\
-  statsite:
+  statsd:
     class: statsdhandler.statsdhandler.StatsdHandler
     level: DEBUG
     config_path: ${options['handler_config_path']}
@@ -64,25 +64,25 @@ handlers:
 
 loggers:
   openprocurement.edge.databridge:
-    handlers: [console${',journal' if 'journal' in options else '' }${',statsite' if 'statsdhandler' in options else '' }]
+    handlers: [console${',journal' if 'journal' in options else '' }${',statsd' if 'statsdhandler' in options else '' }]
     propagate: no
     level: DEBUG
 
   openprocurement.edge.workers:
-    handlers: [console${',journal' if 'journal' in options else '' }${',statsite' if 'statsdhandler' in options else '' }]
+    handlers: [console${',journal' if 'journal' in options else '' }${',statsd' if 'statsdhandler' in options else '' }]
     propagate: no
     level: DEBUG
 
   openprocurement.edge.utils:
-    handlers: [console${',journal' if 'journal' in options else '' }${',statsite' if 'statsdhandler' in options else '' }]
+    handlers: [console${',journal' if 'journal' in options else '' }${',statsd' if 'statsdhandler' in options else '' }]
     propagate: no
     level: DEBUG
 
   openprocurement_client.sync:
-    handlers: [console${',journal' if 'journal' in options else '' }${',statsite' if 'statsdhandler' in options else '' }]
+    handlers: [console${',journal' if 'journal' in options else '' }${',statsd' if 'statsdhandler' in options else '' }]
     propagate: no
     level: DEBUG
 
   "":
-    handlers: [console${',journal' if 'journal' in options else '' }${',statsite' if 'statsdhandler' in options else '' }]
+    handlers: [console${',journal' if 'journal' in options else '' }${',statsd' if 'statsdhandler' in options else '' }]
     level: DEBUG
