@@ -1,0 +1,13 @@
+main:
+  app_key: api
+  host: localhost
+  port: 8125
+publish_templates:
+  default:
+    - '%(attr)s;%(metric_name)s'
+counters:
+  MESSAGE_ID: {}
+  JOURNAL_ERROR_STATUS: {}
+  JOURNAL_REQUEST_METHOD: {}
+histograms:
+  REQUEST_PROCESS_TIME: {}
