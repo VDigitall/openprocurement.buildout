@@ -7,7 +7,3 @@ publish_templates:
     - '%(attr)s;%(metric_name)s'
 counters:
   MESSAGE_ID: {}
-  REQUEST_METHOD: {}
-  RESPONSE_CODE: {}
-histograms:
-  REQUEST_PROCESS_TIME: {}
