@@ -15,7 +15,12 @@ handlers:
     level: INFO
     formatter: simple
     stream: ext://sys.stdout
-
+{% if 'statsd' in options %}\
+  statsd:
+    level: DEBUG
+    class: statsdhandler.StatsdHandler
+    config_path: "${options['handler_config']}"
+{% end %}
   journal:
     class: ExtendedJournalHandler.ExtendedJournalHandler
     level: INFO
@@ -25,11 +30,10 @@ handlers:
 
 loggers:
   openprocurement.tender.competitivedialogue.databridge:
-    handlers: [console, journal]
+    handlers: [console, journal${',statsd' if 'statsd' in options else ''}]
     propagate: no
     level: DEBUG
 
   "":
     handlers: [console, journal]
     level: DEBUG
-
