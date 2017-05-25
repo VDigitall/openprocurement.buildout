@@ -20,10 +20,10 @@ handlers:
 {% end %}
 loggers:
   replichecker:
-    handlers: [console]
+    handlers: [console${',statsd' if 'statsd' in options else ''}]
     propagate: no
-    level: INFO
+    level: DEBUG
 
   "":
-    handlers: [console${',statsd' if 'statsd' in options else ''}]
+    handlers: [console]
     level: DEBUG
