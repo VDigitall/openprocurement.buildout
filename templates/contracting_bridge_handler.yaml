@@ -4,6 +4,11 @@ main:
   port: 8125
 publish_templates:
   default:
-    - '%(attr)s;%(metric_name)s'
+    - '%(logger)s;%(attr)s;%(metric_name)s'
 counters:
   MESSAGE_ID: {}
+gauges:
+  tenders_queue_size: {}
+  handicap_contracts_queue_size: {}
+  contracts_queue_size: {}
+  contracts_retry_queue: {}

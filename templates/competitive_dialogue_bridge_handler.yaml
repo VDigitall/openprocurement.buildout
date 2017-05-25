@@ -4,6 +4,17 @@ main:
   port: 8125
 publish_templates:
   default:
-    - '%(attr)s;%(metric_name)s'
+    - '%(logger)s;%(attr)s;%(metric_name)s'
 counters:
   MESSAGE_ID: {}
+gauges:
+  competitive_dialogues_queue: {}
+  handicap_competitive_dialogues_queue: {}
+  dialogs_stage2_put_queue: {}
+  dialogs_stage2_retry_put_queue': {}
+  dialog_stage2_id_queue: {}
+  dialog_retry_stage2_id_queue: {}
+  dialogs_stage2_patch_queue: {}
+  dialogs_stage2_retry_patch_queue: {}
+  dialog_set_complete_queue: {}
+  dialog_retry_set_complete_queue: {}
