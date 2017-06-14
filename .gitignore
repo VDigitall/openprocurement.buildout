@@ -1,7 +1,10 @@
 .installed.cfg
 .mr.developer.cfg
+buildout.cfg
+.idea/
 bin/
 develop-eggs/
 eggs/
+etc/
 src/
 var/
