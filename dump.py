@@ -7,7 +7,7 @@ import argparse
 import smart_open
 import os
 from couchdb.client import Database
-from yaml import load
+from yaml import load as yaml_load
 import json
 
 from gzip import GzipFile
@@ -65,7 +65,7 @@ def main():
     args = parser.parse_args()
     if os.path.isfile(args.config):
         with open(args.config) as config_file_obj:
-            config = load(config_file_obj.read())
+            config = yaml_load(config_file_obj.read())
             logging.config.dictConfig(config)
             cmd = config.get('dump', {}).get('cmd')
             db_url = config.get('dump', {}).get('db_url')
