@@ -4,13 +4,13 @@ Backup Buildout of OpenProcurement
 Follow the instructions:
 
   1. Copy `buildout.cfg.example` to `buildout.cfg` with including all needed items.
-    * For using monitoring add profile `profiles/statsd.cfg` to `extends`
-    * In `dump.yaml` section option:
-      * `cmd` receive two commands `dump` or `load`
-        * `dump` - for backup
-        * `load` - for restore from backup
-      * `db_url` - url to couchdb with data for backuping
-      * `dump_uri` - path to backup storage (can be path/on/drive or S3-path)
+      * For using monitoring add profile `profiles/statsd.cfg` to `extends`
+      * In `dump.yaml` section option:
+        * `cmd` receive two commands `dump` or `load`
+          * `dump` - for backup
+          * `load` - for restore from backup
+        * `db_url` - url to couchdb with data for backuping
+        * `dump_uri` - path to backup storage (can be path/on/drive or S3-path)
 
   1. Bootstrap the buildout with Python 2.7:
 

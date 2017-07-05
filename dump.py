@@ -7,6 +7,7 @@ import argparse
 import smart_open
 import os
 from couchdb.client import Database
+from datetime import datetime
 from yaml import load as yaml_load
 import json
 
@@ -71,7 +72,9 @@ def main():
             db_url = config.get('dump', {}).get('db_url')
             dump_uri = config.get('dump', {}).get('dump_uri')
             if cmd == "dump":
-                dump(db_url, dump_uri)
+                t_now = datetime.now().strftime('%Y-%m-%dT%H:%M:%S')
+                dump_uri_with_timestamp = '{}_{}.back'.format(dump_uri, t_now)
+                dump(db_url, dump_uri_with_timestamp)
             elif cmd == "load":
                 load(db_url, dump_uri)
 
