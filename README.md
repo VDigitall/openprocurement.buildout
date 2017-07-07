@@ -14,19 +14,31 @@ Follow the instructions:
 
   [edge_data_bridge_defaults]
   user_agent = my_platform_name
-  resources_api_server = http://public.api-sandbox.openprocurement.org  
+  resources_api_server = http://public.api.example.org  
   ```
-  2. Bootstrap the buildout with Python 2.7:
+  1. Bootstrap the buildout with Python 2.7:
 
      ```
      $ python bootstrap.py
      ```
 
-  3. Build the buildout:
+  1. Build the buildout:
 
       ```
       $ bin/buildout -N
       ```
+  1. For check delay between EDGE Server and Public Server are two ways:
+    * Look at Netdata dashboard, if configured.
+    * Run python script:
+
+      ```shell
+        pip install -r requirements.txt
+        python check_timeshift.py https://public-api-server-url http://your-edge-ip-or-domain api_version resource
+      ```
+
+      **api_version** - it is version of api which you wont to check
+
+      **resource** - it is document type like: auctions, contracts, plans or tenders
 
 System requirements (Fedora 24):
 
@@ -34,7 +46,7 @@ System requirements (Fedora 24):
 
 Local development environment also requires additional dependencies:
 
-    dnf install couchdb ctorrent
+    dnf install couchdb
 
 To start environment services:
 
