@@ -5,6 +5,9 @@ extends =
 package-name +=
     penstock
 
+[circus.ini]
+statsd = True
+
 [dump.yaml]
 cmd = dump
 db_url = http://${project:couchdb_username}:${project:couchdb_password}@${project:couchdb_host}:${project:couchdb_port}/${project:couchdb_backup_db}
